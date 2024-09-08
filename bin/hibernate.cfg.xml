@@ -26,7 +26,7 @@
         <!-- update: update existing table, create if not available -->
         <property name="hibernate.hbm2ddl.auto">update</property>
         
-        <!-- Inform ORM to generate the query as per DBE -->
+        <!-- Inform ORM to generate the query as per which DBE -->
         <!-- Need to get class name from org.hibernate.dialect -->
         <property name="hibernate.dialect">org.hibernate.dialect.MySQL8Dialect</property>
         
@@ -35,6 +35,7 @@
         <property name="hibernate.format_sql">true</property>
         
         <!-- Mapping Information -->
+        <!-- Can be given directly while creating SessionFactory -->
         <mapping class="main.com.java.bean.Student" />
 
     </session-factory>

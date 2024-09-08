@@ -24,6 +24,13 @@ public class BasicSelect {
 				
 				// Perform read operation on database
 				std = session.get(Student.class, stdId);
+				/*
+				 * we can use .load for select operations.
+				 * The difference is .get will check in cache and if not there it will directly run select query and fetch the data
+				 * while for load it will provide a proxy object which will be null, until some data if requested from that proxy object.
+				 * eg. it will return an proxy object when called .load()
+				 * 		when we can .getSname() on that proxy object, then it will execute Select query and return a real object
+				 */
 			}
 			
 			if(std != null) {
