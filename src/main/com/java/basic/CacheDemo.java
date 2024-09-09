@@ -40,7 +40,7 @@ public class CacheDemo {
 				
 				//You can clear all the cache by .clear() 
 				session.clear();
-				//If you want to clear epecific object use .evict()
+				//If you want to clear specific object use .evict()
 				
 				std4 = session.get(Student.class, 1);
 				System.out.println("std4 hashcode (After session clear):: "+std4.hashCode());
