@@ -37,7 +37,8 @@
         
         <!-- Mapping Information -->
         <!-- Can be given directly while creating SessionFactory -->
-        <mapping class="main.com.java.bean.Student" />
+        <!-- <mapping class="main.com.java.bean.Student" /> -->
+        <!-- Mapping is done in util class for current project -->
 
     </session-factory>
 
