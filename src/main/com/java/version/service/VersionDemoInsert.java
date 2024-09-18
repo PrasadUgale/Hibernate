@@ -3,6 +3,7 @@ package main.com.java.version.service;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
+import java.util.Scanner;
 
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
@@ -17,18 +18,24 @@ public class VersionDemoInsert {
 	public static void main(String[] args) {
 		Session session = null;
 		Transaction transaction = null;
+		Scanner sc = null;
 		boolean flag = false;
 		
 		try {
 			session = VersionDemoUtil.getSession();
 			transaction = session.beginTransaction();
+			sc = new Scanner(System.in);
 			
 			VersionDemo data = new VersionDemo();
 			
-			data.setAddress("pune");
 			data.setId(1);
-			data.setName("Madara");
-			data.setPincode("510067");
+			System.out.println("Please Enter Values to insert");
+			System.out.println("Enter Address:: ");
+			data.setAddress(sc.next());
+			System.out.println("Enter Name:: ");
+			data.setName(sc.next());
+			System.out.println("Enter Pin code:: ");
+			data.setPincode(sc.next());
 			
 			//Saving the changes
 			session.save(data);

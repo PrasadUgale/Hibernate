@@ -1,11 +1,16 @@
 package main.com.java.version.model;
 
+import java.time.LocalDateTime;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Version;
+
+import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.UpdateTimestamp;
 
 @Entity
 public class VersionDemo {
@@ -26,6 +31,12 @@ public class VersionDemo {
 	
 	@Version
 	private Integer version_number;
+	
+	@CreationTimestamp
+	private LocalDateTime createdAt;
+	
+	@UpdateTimestamp
+	private LocalDateTime updatedAt;
 
 	public Integer getId() {
 		return id;
@@ -67,10 +78,27 @@ public class VersionDemo {
 		this.version_number = version_number;
 	}
 
+	public LocalDateTime getCreatedAt() {
+		return createdAt;
+	}
+
+	public void setCreatedAt(LocalDateTime createdAt) {
+		this.createdAt = createdAt;
+	}
+
+	public LocalDateTime getUpdatedAt() {
+		return updatedAt;
+	}
+
+	public void setUpdatedAt(LocalDateTime updatedAt) {
+		this.updatedAt = updatedAt;
+	}
+
 	@Override
 	public String toString() {
 		return "VersionDemo [id=" + id + ", name=" + name + ", address=" + address + ", pincode=" + pincode
-				+ ", version_number=" + version_number + "]";
+				+ ", version_number=" + version_number + ", createdAt=" + createdAt + ", updatedAt=" + updatedAt + "]";
 	}
+
 	
 }
