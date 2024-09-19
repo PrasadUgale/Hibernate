@@ -1,0 +1,1 @@
+Transfer Data from one table to other : "INSERT INTO main.com.java.bean.Student(sid, sname, sage, saddress) SELECT i.id, i.name, i.age, i.address FROM main.com.java.model.AnotherStudent AS i WHERE i.age>20";

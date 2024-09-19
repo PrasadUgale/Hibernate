@@ -21,6 +21,15 @@ public class BasicFetchAll {
 			 * Basic HQL Query to fetch all records for given entity from db
 			 */
 			query = session.createQuery("FROM main.com.java.bean.Student");
+			
+			//Pagination
+			
+			//setFirstResult specify starting position from records. O means first record
+			query.setFirstResult(0);  
+			
+			//setMaxResults specifies no of results to fetch
+			query.setMaxResults(5);
+			
 			List<Student> std = query.getResultList();
 			
 			if(std.isEmpty()) {
