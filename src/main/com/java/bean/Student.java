@@ -7,7 +7,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.NamedQueries;
+import javax.persistence.NamedNativeQuery;
 import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 
@@ -16,6 +16,8 @@ import javax.persistence.Table;
 @Table(name = "student")		//Specifies table name associated with entity
 @NamedQuery(name = "SelectById", 
 			query = "From main.com.java.bean.Student WHERE sid=:id") //HQL named query
+@NamedNativeQuery( name = "SelectAll", 
+			query = "Select * from Student") //Named Native Query
 public class Student implements Serializable {
 
 	private static final long serialVersionUID = 1L;
