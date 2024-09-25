@@ -36,9 +36,21 @@
         <property name="hibernate.format_sql">true</property>
         
         <!-- Mapping Information -->
-        <!-- Can be given directly while creating SessionFactory -->
+        <!-- Can be given directly while creating SessionFactory as gien in HibernateUtil-->
         <!-- <mapping class="main.com.java.bean.Student" /> -->
-        <!-- Mapping is done in util class for current project -->
+
+
+		<!-- Configuring L2 cache for Session Factory -->
+		<property name="cache.use_second_level_cache">true</property>
+		<property name="net.sf.ehcache.configurationResourceName">
+			main/com/java/cache/config/ehcache.xml</property>
+		<property name="hibernate.cache.region.factory_class">
+			org.hibernate.cache.ehcache.EhCacheRegionFactory
+		</property>
+
+
+		<!--Working with QueryCache -->
+		<property name="hibernate.cache.use_query_cache">true</property>
 
     </session-factory>
 
