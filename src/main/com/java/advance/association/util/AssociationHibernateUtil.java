@@ -10,6 +10,12 @@ import main.com.java.advance.association.model.one2many.Person;
 import main.com.java.advance.association.model.one2many.PersonBi;
 import main.com.java.advance.association.model.one2many.PhoneNumber;
 import main.com.java.advance.association.model.one2many.PhoneNumberBi;
+import main.com.java.advance.association.model.one2one.LibraryFkBi;
+import main.com.java.advance.association.model.one2one.LibraryFkUni;
+import main.com.java.advance.association.model.one2one.LibraryPk;
+import main.com.java.advance.association.model.one2one.StudentFkBi;
+import main.com.java.advance.association.model.one2one.StudentFkUni;
+import main.com.java.advance.association.model.one2one.StudentPk;
 
 public class AssociationHibernateUtil {
 	private static SessionFactory sessionFactory = null;
@@ -25,6 +31,12 @@ public class AssociationHibernateUtil {
 							.addAnnotatedClass(PhoneNumberBi.class)
 							.addAnnotatedClass(Doctor.class)
 							.addAnnotatedClass(Patient.class)
+							.addAnnotatedClass(StudentPk.class)
+							.addAnnotatedClass(LibraryPk.class)
+							.addAnnotatedClass(StudentFkUni.class)
+							.addAnnotatedClass(LibraryFkUni.class)
+							.addAnnotatedClass(StudentFkBi.class)
+							.addAnnotatedClass(LibraryFkBi.class)
 							.buildSessionFactory();
 		}
 	}

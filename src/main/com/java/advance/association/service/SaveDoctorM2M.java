@@ -68,6 +68,13 @@ public class SaveDoctorM2M {
 			session.save(doc1);
 			session.save(doc2);
 			
+			/*
+			 * Or we can save data using child as well
+			 * session.save(pat1);
+			 * session.save(pat2);
+			 * session.save(pat3);
+			 * session.save(pat4);
+			 */
 			flag = true;
 
 		} catch (HibernateException he) {

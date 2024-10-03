@@ -7,11 +7,10 @@ import org.hibernate.Query;
 import org.hibernate.Session;
 
 import main.com.java.advance.association.model.many2many.Doctor;
-import main.com.java.advance.association.model.one2many.PersonBi;
-import main.com.java.advance.association.model.one2many.PhoneNumberBi;
+import main.com.java.advance.association.model.one2one.StudentPk;
 import main.com.java.advance.association.util.AssociationHibernateUtil;
 
-public class FetchDoctorM2M {
+public class FetchO2OPk {
 	
 	public static void main(String[] args) {
 
@@ -20,17 +19,15 @@ public class FetchDoctorM2M {
 		try {
 			session = AssociationHibernateUtil.getSession();
 			
-			//Fetching Data from Parent(Doctor)
-			Query<Doctor> query = session.createQuery("from Doctor");
-			List<Doctor> doctors = query.getResultList();
+			//Fetching Data from Parent(StudentPk)
+			Query<StudentPk> query = session.createQuery("from StudentPk");
+			List<StudentPk> students = query.getResultList();
 			
-			doctors.forEach(doctor -> {
-				System.out.println(doctor);
-				doctor.getPatients().forEach(patient -> {
-					System.out.println(patient);
+			students.forEach(s -> {
+				System.out.println(s);
 				});
-				System.out.println("______________________________________");
-			});
+			System.out.println("______________________________________");
+			
 			
 		} catch (HibernateException he) {
 			he.printStackTrace();
