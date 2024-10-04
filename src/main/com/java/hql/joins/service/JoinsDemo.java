@@ -20,6 +20,7 @@ public class JoinsDemo {
 			session = AssociationHibernateUtil.getSession();
 
 			//Inner Join
+			//Fetches records that have matching entries in both tables (entities).
 			String HQL_INNER_JOIN = "select per.pid, per.pname, per.paddress,"  //Parent Attributes
 			 			+ " num.regNo, num.mobileNo, num.type, num.provider "     //Child Attributes
 			 			+ "from PersonBi per "   //Parent
@@ -28,11 +29,14 @@ public class JoinsDemo {
 			 
 			
 			// Left Join
+			//Fetches all records from the left entity and matching records from the right entity. If no match is found, NULL is returned for the right entity
 			String HQL_LEFT_JOIN = "select per.pid, per.pname, per.paddress,num.regNo, num.mobileNo, num.type, num.provider from PersonBi per left join per.numbers num";   
 			 
 			// Right Join
+			//Fetches all records from the right entity and matching records from the left entity. If no match is found, NULL is returned for the left entity.
 			String HQL_RIGHT_JOIN = "select per.pid, per.pname, per.paddress,num.regNo, num.mobileNo, num.type, num.provider from PhoneNumberBi num right join num.person per";   
 				
+			
 			testJoin(HQL_RIGHT_JOIN);
 			
 			
