@@ -18,9 +18,6 @@ import javax.persistence.Table;
 @Table(name = "DOCTOR_MANY_MANY")
 public class Doctor implements Serializable {
 
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 1L;
 	
 	@Id
@@ -30,7 +27,12 @@ public class Doctor implements Serializable {
 	private String specialization;
 	private String hospital;
 	
-	//Many to Many mapping
+	/* Many to Many mapping
+	 * @JoinTable defines the join table for a many-to-many relationship.
+	 * name = "DOC_PAT_M2M": The join table name.
+	 * joinColumns: Refers to the owning side (Doctor) with DOC_ID as the foreign key to docId.
+	 * inverseJoinColumns: Refers to the inverse side (Patient) with PAT_ID as the foreign key to patId
+	 */
 	@ManyToMany(targetEntity = Patient.class,cascade = CascadeType.ALL, fetch = FetchType.EAGER)
 	@JoinTable(name = "DOC_PAT_M2M", 
 				joinColumns = @JoinColumn(name= "DOC_ID", referencedColumnName = "docId"), 
